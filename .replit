@@ -24,14 +24,14 @@ args = "Executar main.java"
 name = "Executar main.java"
 author = "agent"
 
+[workflows.workflow.metadata]
+outputType = "console"
+
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = """
-if [ -s main.java ]; then java main.java; else printf 'main.java está vazio; adicione código Java para executar.
+if [ -s main.java ]; then mkdir -p build/classes && javac -sourcepath . -d build/classes main.java && java -cp build/classes main; else printf 'main.java está vazio; adicione código Java para executar.
 '; fi"""
-
-[workflows.workflow.metadata]
-outputType = "console"
 
 [agent]
 stack = "PNPM_WORKSPACE"

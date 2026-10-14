@@ -5,8 +5,7 @@ Ambiente de programação Java com JDK, compilador e execução do arquivo `main
 ## Run & Operate
 
 - Use o workflow **Executar main.java** para rodar o arquivo.
-- `java main.java` — executar o arquivo diretamente.
-- `javac main.java && java main` — compilar e executar separadamente.
+- `javac -sourcepath . -d build/classes main.java && java -cp build/classes main` — compilar e executar a partir da raiz.
 - `java -version` e `javac -version` — conferir runtime e compilador.
 
 ## Stack
@@ -16,24 +15,18 @@ Ambiente de programação Java com JDK, compilador e execução do arquivo `main
 
 ## Where things live
 
-- `main.java` — ponto de entrada inicial; será mantido vazio após a validação solicitada.
+- `main.java` — ponto de entrada do programa.
+- `modelos/Pessoa.java` — classe `Pessoa`, no pacote `modelos`.
 
 ## Architecture decisions
 
-- O workflow executa `main.java` quando há código e informa quando o arquivo está vazio.
+- O workflow compila o ponto de entrada e resolve classes em pacotes usando a raiz como source path.
 
 ## Product
 
 Projeto-base HerancaJava para desenvolver e executar código Java.
 
-## User preferences
-
-- Após validar o ambiente, deixar `main.java` completamente em branco.
-
 ## Gotchas
 
-- Para executar o arquivo vazio, adicione primeiro uma classe com método `main`.
+- Compile a partir da raiz do projeto para que o compilador encontre arquivos dentro de diretórios de pacotes.
 
-## Pointers
-
-- O launcher Java aceita execução direta no formato `java main.java`.
