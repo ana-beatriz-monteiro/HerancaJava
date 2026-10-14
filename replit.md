@@ -1,45 +1,39 @@
-# [Project name]
+# HerancaJava
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+Ambiente de programação Java com JDK, compilador e execução do arquivo `main.java`.
 
 ## Run & Operate
 
-- `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
-- `pnpm run typecheck` — full typecheck across all packages
-- `pnpm run build` — typecheck + build all packages
-- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
-- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
+- Use o workflow **Executar main.java** para rodar o arquivo.
+- `java main.java` — executar o arquivo diretamente.
+- `javac main.java && java main` — compilar e executar separadamente.
+- `java -version` e `javac -version` — conferir runtime e compilador.
 
 ## Stack
 
-- pnpm workspaces, Node.js 24, TypeScript 5.9
-- API: Express 5
-- DB: PostgreSQL + Drizzle ORM
-- Validation: Zod (`zod/v4`), `drizzle-zod`
-- API codegen: Orval (from OpenAPI spec)
-- Build: esbuild (CJS bundle)
+- Java 19.0.2 com GraalVM CE 22.3.1
+- JDK, incluindo `java`, `javac` e Maven
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `main.java` — ponto de entrada inicial; será mantido vazio após a validação solicitada.
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- O workflow executa `main.java` quando há código e informa quando o arquivo está vazio.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+Projeto-base HerancaJava para desenvolver e executar código Java.
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- Após validar o ambiente, deixar `main.java` completamente em branco.
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- Para executar o arquivo vazio, adicione primeiro uma classe com método `main`.
 
 ## Pointers
 
-- See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details
+- O launcher Java aceita execução direta no formato `java main.java`.
